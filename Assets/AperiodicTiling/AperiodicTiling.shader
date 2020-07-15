@@ -1,4 +1,4 @@
-﻿Shader "SimpleWang/Standard"
+﻿Shader "AperiodicTiling/Standard"
 {
 	Properties
 	{
