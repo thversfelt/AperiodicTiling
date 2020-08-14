@@ -16,3 +16,7 @@ A common technique for texturing large planes is to periodically tile a single t
 ![Basic](https://user-images.githubusercontent.com/40113382/90249906-90ae4c00-de3b-11ea-9fca-06894c1cb7e5.jpg)
 
 ![Flowers](https://user-images.githubusercontent.com/40113382/90249916-9310a600-de3b-11ea-9d8a-e6c2077cca38.jpg)
+
+## Usage
+
+Use the [Wang tiler](https://robburke.net/mle/wang/) by Rob Burke to generate the tiles from a single texture. Use any image editor to combine the tiles into a tileset.
