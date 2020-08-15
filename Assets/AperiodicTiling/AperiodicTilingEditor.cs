@@ -90,7 +90,7 @@ namespace AperiodicTiling
                 {
                     aperiodicTiling.Tileset = aperiodicTiling.generateTileset();
                     aperiodicTiling.TilesetTexture = aperiodicTiling.generateTilesetTexture(aperiodicTiling.Tileset);
-                    aperiodicTiling.GetComponent<Renderer>().material.SetTexture("_TilesetTex", aperiodicTiling.TilesetTexture);
+                    aperiodicTiling.GetComponent<Renderer>().sharedMaterial.SetTexture("_TilesetTex", aperiodicTiling.TilesetTexture);
                 }
 
                 if (GUILayout.Button("Save tileset"))
@@ -111,7 +111,7 @@ namespace AperiodicTiling
                 if (GUILayout.Button("Generate pattern"))
                 {
                     aperiodicTiling.PatternTexture = aperiodicTiling.generatePatternTexture(aperiodicTiling.PatternSize, aperiodicTiling.PatternSize, aperiodicTiling.Tileset);
-                    aperiodicTiling.GetComponent<Renderer>().material.SetTexture("_PatternTex", aperiodicTiling.PatternTexture);
+                    aperiodicTiling.GetComponent<Renderer>().sharedMaterial.SetTexture("_PatternTex", aperiodicTiling.PatternTexture);
                 }
 
                 if (GUILayout.Button("Save pattern"))
