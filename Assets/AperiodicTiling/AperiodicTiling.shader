@@ -48,7 +48,7 @@
 				fixed4 tile = tex2D(_PatternTex, alignedUV);
 
 				// Get the tile's row and column index stored in the pattern texture as green and blue values respecitvely.
-				uint row = (_RowCount - 1) - tile.g * 255.0f; // (rows start counting from the top, so flip the y-axis)
+				uint row = tile.g * 255.0f;
 				uint col = tile.b * 255.0f;
 
 				// Offset the uv texel in to sample the correct tile in the tileset.
