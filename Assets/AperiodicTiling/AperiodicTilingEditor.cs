@@ -64,11 +64,38 @@ namespace AperiodicTiling
 
                 EditorGUILayout.Space();
 
+                EditorGUILayout.BeginHorizontal();
+                {
+                    aperiodicTiling.TileTextures[8] = TextureField("Tile 8", aperiodicTiling.TileTextures[8]);
+                    aperiodicTiling.TileTextures[9] = TextureField("Tile 9", aperiodicTiling.TileTextures[9]);
+                    aperiodicTiling.TileTextures[10] = TextureField("Tile 10", aperiodicTiling.TileTextures[10]);
+                    aperiodicTiling.TileTextures[11] = TextureField("Tile 11", aperiodicTiling.TileTextures[11]);
+                }
+                EditorGUILayout.EndHorizontal();
+
+                EditorGUILayout.Space();
+
+                EditorGUILayout.BeginHorizontal();
+                {
+                    aperiodicTiling.TileTextures[12] = TextureField("Tile 12", aperiodicTiling.TileTextures[12]);
+                    aperiodicTiling.TileTextures[13] = TextureField("Tile 13", aperiodicTiling.TileTextures[13]);
+                    aperiodicTiling.TileTextures[14] = TextureField("Tile 14", aperiodicTiling.TileTextures[14]);
+                    aperiodicTiling.TileTextures[15] = TextureField("Tile 15", aperiodicTiling.TileTextures[15]);
+                }
+                EditorGUILayout.EndHorizontal();
+
+                EditorGUILayout.Space();
+
                 if (GUILayout.Button("Generate tileset"))
                 {
                     aperiodicTiling.Tileset = aperiodicTiling.generateTileset();
                     aperiodicTiling.TilesetTexture = aperiodicTiling.generateTilesetTexture(aperiodicTiling.Tileset);
                     aperiodicTiling.GetComponent<Renderer>().material.SetTexture("_TilesetTex", aperiodicTiling.TilesetTexture);
+                }
+
+                if (GUILayout.Button("Save tileset"))
+                {
+                    aperiodicTiling.saveTexture(aperiodicTiling.TilesetTexture, "Tileset");
                 }
             }
             GUILayout.EndVertical();
@@ -85,6 +112,11 @@ namespace AperiodicTiling
                 {
                     aperiodicTiling.PatternTexture = aperiodicTiling.generatePatternTexture(aperiodicTiling.PatternSize, aperiodicTiling.PatternSize, aperiodicTiling.Tileset);
                     aperiodicTiling.GetComponent<Renderer>().material.SetTexture("_PatternTex", aperiodicTiling.PatternTexture);
+                }
+
+                if (GUILayout.Button("Save pattern"))
+                {
+                    aperiodicTiling.saveTexture(aperiodicTiling.PatternTexture, "Pattern");
                 }
             }
             GUILayout.EndVertical();

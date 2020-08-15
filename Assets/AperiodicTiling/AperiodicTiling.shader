@@ -5,9 +5,9 @@
 		_PatternTex("Pattern texture:", 2D) = "white" {}
 		_TilesetTex("Tileset:", 2D) = "white" {}
 		_TilesetNormalTex("Tileset normal", 2D) = "bump" {}
-		_RowCount("Number of rows:", Float) = 2
+		_RowCount("Number of rows:", Float) = 4
 		_ColCount("Number of columns:", Float) = 4
-		_LOD("Level of detail (LOD)", Float) = 0.5
+		_LOD("Level of detail (LOD)", Float) = 0.28
 		_Color("Color", Color) = (1,1,1,1)
 		_Glossiness("Smoothness", Range(0,1)) = 0.5
 		_Metallic("Metallic", Range(0,1)) = 0.0

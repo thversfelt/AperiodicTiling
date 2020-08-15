@@ -13,7 +13,7 @@ namespace AperiodicTiling
         private const int Yellow = 2;
         private const int Blue = 3;
 
-        private const int RowCount = 2;
+        private const int RowCount = 4;
         private const int ColumnCount = 4;
 
         public Texture2D[] TileTextures = new Texture2D[RowCount * ColumnCount];
@@ -24,31 +24,46 @@ namespace AperiodicTiling
         public Texture2D PatternTexture;
 
         /// <summary>
-        /// Generates a tileset consisting of 8 Wang tiles.
+        /// Generates a tileset consisting of 16 Wang tiles.
         /// </summary>
-        /// <returns>Returns a tileset as a list of tiles.</returns>
+        /// <returns>A tileset as an array of tiles.</returns>
         public Tile[] generateTileset()
         {
             Tile[] tileset = new Tile[RowCount * ColumnCount];
 
-            // Tile # = NESW
-            // Tile 0 = 0213
-            // Tile 0 = 1313
-            // Tile 0 = 0202
-            // Tile 0 = 1302
-            // Tile 0 = 0312
-            // Tile 0 = 1212
-            // Tile 0 = 0303
-            // Tile 0 = 1203
+            // 1313
+            // 0313
+            // 1213
+            // 0213
+            // 1303
+            // 0303
+            // 1203
+            // 0203
+            // 1312
+            // 0312
+            // 1212
+            // 0212
+            // 1302
+            // 0302
+            // 1202
+            // 0202
 
-            tileset[0] = new Tile(0, TileTextures[0], 0, 2, Red, Yellow, Green, Blue);
-            tileset[1] = new Tile(1, TileTextures[1], 1, 3, Green, Blue, Green, Blue);
-            tileset[2] = new Tile(2, TileTextures[2], 1, 1, Red, Yellow, Red, Yellow);
-            tileset[3] = new Tile(3, TileTextures[3], 1, 2, Green, Blue, Red, Yellow);
-            tileset[4] = new Tile(4, TileTextures[4], 0, 0, Red, Blue, Green, Yellow);
-            tileset[5] = new Tile(5, TileTextures[5], 0, 3, Green, Yellow, Green, Yellow);
-            tileset[6] = new Tile(6, TileTextures[6], 0, 1, Red, Blue, Red, Blue);
-            tileset[7] = new Tile(7, TileTextures[7], 1, 0, Green, Yellow, Red, Blue);
+            tileset[0] = new Tile(0, TileTextures[0], 0, 0, Green, Blue, Green, Blue);
+            tileset[1] = new Tile(1, TileTextures[1], 1, 0, Red, Blue, Green, Blue);
+            tileset[2] = new Tile(2, TileTextures[2], 0, 1, Green, Yellow, Green, Blue);
+            tileset[3] = new Tile(3, TileTextures[3], 1, 1, Red, Yellow, Green, Blue);
+            tileset[4] = new Tile(4, TileTextures[4], 3, 0, Green, Blue, Red, Blue);
+            tileset[5] = new Tile(5, TileTextures[5], 2, 0, Red, Blue, Red, Blue);
+            tileset[6] = new Tile(6, TileTextures[6], 3, 1, Green, Yellow, Red, Blue);
+            tileset[7] = new Tile(7, TileTextures[7], 2, 1, Red, Yellow, Red, Blue);
+            tileset[8] = new Tile(8, TileTextures[8], 0, 3, Green, Blue, Green, Yellow);
+            tileset[9] = new Tile(9, TileTextures[9], 1, 3, Red, Blue, Green, Yellow);
+            tileset[10] = new Tile(10, TileTextures[10], 0, 2, Green, Yellow, Green, Yellow);
+            tileset[11] = new Tile(11, TileTextures[11], 1, 2, Red, Yellow, Green, Yellow);
+            tileset[12] = new Tile(12, TileTextures[12], 3, 3, Green, Blue, Red, Yellow);
+            tileset[13] = new Tile(13, TileTextures[13], 2, 3, Red, Blue, Red, Yellow);
+            tileset[14] = new Tile(14, TileTextures[14], 3, 2, Green, Yellow, Red, Yellow);
+            tileset[15] = new Tile(15, TileTextures[15], 2, 2, Red, Yellow, Red, Yellow);
 
             return tileset;
         }
@@ -57,7 +72,7 @@ namespace AperiodicTiling
         /// Generates a tileset texture.
         /// </summary>
         /// <param name="tileset">The tileset to be used for the tileset texture.</param>
-        /// <returns></returns>
+        /// <returns>The generated tileset texture.</returns>
         public Texture2D generateTilesetTexture(Tile[] tileset)
         {
             int width = tileset[0].Texture.width * ColumnCount;
@@ -79,7 +94,6 @@ namespace AperiodicTiling
                 }
             }
 
-            texture.anisoLevel = 4;
             texture.Apply();
 
             Debug.Log("Generated new tileset.");
@@ -92,7 +106,7 @@ namespace AperiodicTiling
         /// <param name="width">The desired width of the texture.</param>
         /// <param name="height">The desired height of the texture.</param>
         /// <param name="tileset">The tileset to be used for the Wang pattern.</param>
-        /// <returns></returns>
+        /// <returns>The generated pattern texture.</returns>
         public Texture2D generatePatternTexture(int width, int height, Tile[] tileset)
         {
             Texture2D texture = new Texture2D(width, height, TextureFormat.ARGB32, false);
@@ -131,7 +145,7 @@ namespace AperiodicTiling
         /// Chooses a random tile from a tileset.
         /// </summary>
         /// <param name="tileset">The tileset from which the tile is randomly chosen.</param>
-        /// <returns>Returns the randomly chosen tile.</returns>
+        /// <returns>The randomly chosen tile.</returns>
         private Tile randomTile(Tile[] tileset)
         {
             return tileset[Random.Range(0, tileset.Length)];
@@ -142,19 +156,19 @@ namespace AperiodicTiling
         /// </summary>
         /// <param name="id">The id of the tile that needs to be found.</param>
         /// <param name="tileset">The tileset in which the tile should be found.</param>
-        /// <returns>Returns the found tile.</returns>
+        /// <returns>The found tile.</returns>
         private Tile findTile(int id, Tile[] tileset)
         {
             return tileset.Where(tile => tile.Id == id).First();
         }
 
         /// <summary>
-        /// Finds the tiles in the supplied tileset that have compatible colors on the west and south sides.
+        /// Finds the tiles in the supplied tileset that have compatible colors on the west and south edges.
         /// </summary>
         /// <param name="west">The tile that lies west to the current tile.</param>
         /// <param name="south">The tile that lies south to the current tile.</param>
         /// <param name="tileset">The tileset in which the tiles should be found.</param>
-        /// <returns></returns>
+        /// <returns>The array of tiles that are compatible with the given edge colors.</returns>
         private Tile[] findCompatibleTiles(Tile west, Tile south, Tile[] tileset)
         {
             if (west == null && south == null)
@@ -173,6 +187,18 @@ namespace AperiodicTiling
             {
                 return tileset.Where(tile => tile.West == west.East && tile.South == south.North).ToArray();
             }
+        }
+
+        /// <summary>
+        /// Saves the given texture.
+        /// </summary>
+        /// <param name="texture">The texture to be saved.</param>
+        /// <param name="name">The name of the file.</param>
+        public void saveTexture(Texture2D texture, string name)
+        {
+            byte[] bytes = texture.EncodeToPNG();
+            File.WriteAllBytes(Application.dataPath + "/AperiodicTiling/" + name + ".png", bytes);
+            Debug.Log("Saved texture.");
         }
 
         public class Tile
