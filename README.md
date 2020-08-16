@@ -4,11 +4,12 @@ A common technique for texturing large planes is to periodically tile a single t
 
 ## Features
 
-- Pattern generator to generate unique tilings
+- Pattern generator to generate random tilings
 - Normal mapping support
 - Adjustable Level-of-Detail (LOD)
 - Demo scene
-- Two example tilesets (basic and flowers)
+- Three example tilesets (basic, flowers and rocks)
+- Easy to use user-interface
 - Clean, well-documented code
 
 ## Screenshots
@@ -17,6 +18,8 @@ A common technique for texturing large planes is to periodically tile a single t
 
 ![Flowers](https://user-images.githubusercontent.com/40113382/90249916-9310a600-de3b-11ea-9d8a-e6c2077cca38.jpg)
 
+![Rocks](https://user-images.githubusercontent.com/40113382/90332145-d2b1cc00-dfba-11ea-8ba6-215a3e70f47c.jpg)
+
 ## Usage
 
-Use the [Wang tiler](https://robburke.net/mle/wang/) by Rob Burke to generate the tiles from a single texture. Use any image editor to combine the tiles into a tileset.
+The following [tutorial video](https://youtu.be/zU1IxlMyJv8) shows how to use Rob Burke's [Wang tiler](https://robburke.net/mle/wang/) to create a new custom tileset from a single source image.
