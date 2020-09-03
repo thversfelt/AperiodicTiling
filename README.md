@@ -2,10 +2,10 @@
 
 ## Table of contents
 
-1. [Introduction](##1-introduction)
-2. [Features](##2-features)
-3. [Screenshots](##3-screenshots)
-4. [Usage](##4-usage)
+1. [Introduction](#1-introduction)
+2. [Features](#2-features)
+3. [Screenshots](#3-screenshots)
+4. [Usage](#4-usage)
 
 ## 1. Introduction
 
