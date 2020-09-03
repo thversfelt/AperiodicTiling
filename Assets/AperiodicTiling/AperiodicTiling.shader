@@ -2,15 +2,13 @@
 {
 	Properties
 	{
-		_PatternTex("Pattern texture:", 2D) = "white" {}
-		_TilesetTex("Tileset:", 2D) = "white" {}
-		_TilesetNormalTex("Tileset normal", 2D) = "bump" {}
-		_RowCount("Number of rows:", Float) = 4
-		_ColCount("Number of columns:", Float) = 4
-		_LOD("Level of detail (LOD)", Float) = 0.28
+		_PatternTex("Pattern texture", 2D) = "white" {}
+		_TilesetTex("Tileset texture", 2D) = "white" {}
+		_TilesetNormalTex("Tileset normal texture", 2D) = "bump" {}
 		_Color("Color", Color) = (1,1,1,1)
 		_Glossiness("Smoothness", Range(0,1)) = 0.5
 		_Metallic("Metallic", Range(0,1)) = 0.0
+		_LOD("Level of detail (LOD)", Range(0,1)) = 0.28
 	}
 		SubShader
 		{
@@ -31,8 +29,6 @@
 			};
 
 			float4 _PatternTex_TexelSize;
-			float _RowCount;
-			float _ColCount;
 			float _LOD;
 
 			fixed4 _Color;
@@ -51,12 +47,15 @@
 				uint row = tile.g * 255.0f;
 				uint col = tile.b * 255.0f;
 
+				float rowCount = 4;
+				float colCount = 4;
+
 				// Offset the uv texel in to sample the correct tile in the tileset.
 				float2 scaledUV = IN.uv_PatternTex * _PatternTex_TexelSize.z;
 				uint2 cell = floor(scaledUV);
 				float2 offsetUV = scaledUV - cell;
 				offsetUV += float2(col, row);
-				offsetUV /= float2(_ColCount, _RowCount);
+				offsetUV /= float2(colCount, rowCount);
 
 				// Generate correct mipmaps.
 				float2 derivativeUV = scaledUV * _LOD;

@@ -31,6 +31,9 @@ namespace AperiodicTiling
         {
             Tile[] tileset = new Tile[RowCount * ColumnCount];
 
+            // The numerical representation of the tileset.
+            // N = North, E = East, S = South, W = West.
+            // NESW
             // 1313
             // 0313
             // 1213
