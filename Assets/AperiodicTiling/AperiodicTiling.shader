@@ -47,6 +47,7 @@
 				uint row = tile.g * 255.0f;
 				uint col = tile.b * 255.0f;
 
+				// The amount of rows and columns in the tileset.
 				float rowCount = 4;
 				float colCount = 4;
 
