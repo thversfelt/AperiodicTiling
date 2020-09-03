@@ -38,4 +38,4 @@ The following [tutorial video](https://youtu.be/zU1IxlMyJv8) shows how to setup 
 
 ## 5. Support
 
-If you encounter any bugs, please create an issue with a description and the steps to reproduce the bug on the [issues board](https://github.com/thversfelt/AperiodicTiling/issues). If you need additional support, send me an [e-mail](thversfelt@hotmail.com).
+If you encounter any bugs, please create an issue with a description and the steps to reproduce the bug on the [issues board](https://github.com/thversfelt/AperiodicTiling/issues). If you need additional support, send me an [e-mail](mailto:thversfelt@hotmail.com).
