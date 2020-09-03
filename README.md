@@ -6,6 +6,7 @@
 2. [Features](#2-features)
 3. [Screenshots](#3-screenshots)
 4. [Usage](#4-usage)
+5. [Support](#5-support)
 
 ## 1. Introduction
 
@@ -34,3 +35,7 @@ The following screenshots are taken within the included demo scene and demonstra
 ## 4. Usage
 
 The following [tutorial video](https://youtu.be/zU1IxlMyJv8) shows how to setup the plugin and use Rob Burke's [Wang tiler](https://robburke.net/mle/wang/) to create a new custom tileset from a single source image.
+
+## 5. Support
+
+If you encounter any bugs, please create an issue with a description and the steps to reproduce the bug on the [issues board](https://github.com/thversfelt/AperiodicTiling/issues). If you need additional support, send me an [e-mail](thversfelt@hotmail.com).
